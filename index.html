@@ -72,6 +72,27 @@
                             )], 'article');
                     }
 
+                    function createThumbnailUrlContainer(thumbnail, url) {
+                        return createContainer([
+                            setAttributes(document.createElement('img'), {src: thumbnail}),
+                            // had to replace &rarrow; with its hex name, see here:
+                            // https://stackoverflow.com/questions/39291156/javascriptoutput-symbols-and-special-characters
+                            document.createTextNode('\u2192'),
+                            setAttributes(createTextElement('a', 'Full Recipe'), {href: url})
+                        ]);
+                    }
+
+                    function setAttributes(element, attributes) {
+                        for(let key in attributes) {
+                            // deals with more deeply structured attributes (e.g., style)
+                            if(typeof(attributes[key]) === 'object') {
+                                setAttributes(element[key], attributes[key]);
+                            } else {
+                                element[key] = attributes[key];
+                            }
+                        }
+                    }
+
                     function createTextElement(tag, text) {
                         const element = document.createElement(tag);
                         element.innerText = text;
