@@ -71,6 +71,14 @@
                                 createIngredientContainer(recipe.ingredients)]
                             )], 'article');
                     }
+
+                    function createContainer(elements, tag='div') {
+                        const container = document.createElement(tag);
+                        for(let element of elements) {
+                            container.appendChild(element);
+                        }
+                        return container;
+                    }
                 }
             }
 
