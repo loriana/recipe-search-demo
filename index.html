@@ -72,6 +72,12 @@
                             )], 'article');
                     }
 
+                    function createTextElement(tag, text) {
+                        const element = document.createElement(tag);
+                        element.innerText = text;
+                        return element;
+                    }
+
                     function createContainer(elements, tag='div') {
                         const container = document.createElement(tag);
                         for(let element of elements) {
