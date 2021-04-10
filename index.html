@@ -27,11 +27,30 @@
 
             function recipeSearch(ingredients) {
                 const recipes = retrieveRecipes(ingredients);
-                //insert recipes
+                if(!recipes) {
+                    alert("No recipes found!");
+                    return;
+                }
+            }
+
+            class Recipe {
+                constructor(title, ingredients, thumbnail, url) {
+                    this.title = title;
+                    this.ingredients = ingredients;
+                    this.thumbnail = thumbnail;
+                    this.url = url;
+                }
             }
 
             function retrieveRecipes(ingredients) {
-                //return a list of recipes
+                return [
+                    new Recipe('Jalapeno Souffle', ['eggs', 'jalapeno', 'cheese'],
+                                'http://img.recipepuppy.com/29939.jpg',
+                                'http://allrecipes.com/Recipe/Jalapeno-Souffle/Detail.aspx'),
+                    new Recipe('Curry and Kabana Sausage Rolls', ['cheese', 'curry powder', 'eggs'],
+                                'http://img.recipepuppy.com/548269.jpg',
+                                'http://www.bestrecipes.com.au/recipe/Curry-and-Kabana-Sausage-Rolls-L3515.html')
+                ];
             }
         </script>
     </head>
