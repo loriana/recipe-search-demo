@@ -33,6 +33,9 @@
                 }
                 const recipeContainer = new RecipeDocumentContainer();
                 recipeContainer.clear();
+                for(let recipe of recipes) {
+                    recipeContainer.addRecipeToDocument(recipe);
+                }
             }
 
             class Recipe {
@@ -55,6 +58,32 @@
 
                 clear() {
                     this.container.innerHTML = '';
+                }
+
+                addRecipeToDocument(recipe) {
+                    function ingredientsToHTML(ingredients) {
+                        let html = '<ul>';
+                        for(let ingredient of ingredients) {
+                            html += `<li>${ingredient}</li>`;
+                        }
+                        html += '</ul>';
+                        return html;
+                    }
+
+                    this.container.innerHTML +=
+                    `<article>
+                        <h2>${recipe.title}</h2>
+                        <div>
+                            <div>
+                                <img src="${recipe.thumbnail}">
+                                &rarr; <a href="${recipe.url}">Full Recipe</a>
+                            </div>
+                            <div>
+                                <h3>Ingredients</h3>
+                                ${ingredientsToHTML(recipe.ingredients)}
+                            </div>
+                        </div>
+                    </article>`;
                 }
             }
 
