@@ -7,6 +7,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css?family=Baloo+2&display=swap" rel="stylesheet">        
         <link href="main.css" rel="stylesheet">
+        <script type="module">
+            const searchInput = document.getElementById('ingredients');
+            searchInput.addEventListener('click', event => event.target.style.border = '')
+
+            const searchButton = document.getElementById('ingredient_search');
+            searchButton.addEventListener('click', event => { 
+                const searchInput = document.getElementById('ingredients');
+                if(!searchInput.value) {
+                    searchInput.style.border = "1px solid red"
+                    return;
+                }
+            });
+        </script>
     </head>
     <body>
         <header>
