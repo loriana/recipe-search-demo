@@ -11,15 +11,28 @@
             const searchInput = document.getElementById('ingredients');
             searchInput.addEventListener('click', event => event.target.style.border = '')
 
-            const searchButton = document.getElementById('ingredient_search');
-            searchButton.addEventListener('click', event => { 
+            const form = document.querySelector('#search form');
+            form.addEventListener('submit', event => {
+                //prevents default HTML form behavior on submitting
+                event.preventDefault();
+
                 const searchInput = document.getElementById('ingredients');
                 if(!searchInput.value) {
                     searchInput.style.border = "1px solid red"
                     return;
                 }
                 const ingredients = searchInput.value.split(',');
+                recipeSearch(ingredients);
             });
+
+            function recipeSearch(ingredients) {
+                const recipes = retrieveRecipes(ingredients);
+                //insert recipes
+            }
+
+            function retrieveRecipes(ingredients) {
+                //return a list of recipes
+            }
         </script>
     </head>
     <body>
@@ -33,7 +46,7 @@
             <section id="search">
                 <form>
                     <label for="ingredients">Ingredients</label>
-                    <input title="Type in comma-separated ingredients" type="text" id="ingredients" name="ingredients" />
+                    <input title="Type in comma-separated ingredients" type="text" id="ingredients" name="ingredients">
                     <button type="submit" id="ingredient_search">Search</button>
                 </form>
             </section>
@@ -55,7 +68,6 @@
                         </div>                    
                     </div>
                 </article>
-
                 <article>
                     <h2>Curry and Kabana Sausage Rolls</h2>
                     <div>
