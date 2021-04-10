@@ -1,0 +1,1 @@
+In the next commits, we'll remove the two static recipe representations. We'll then write some functions that dynamically insert recipes into the DOM, based on mocked data.
