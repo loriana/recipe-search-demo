@@ -31,6 +31,8 @@
                     alert("No recipes found!");
                     return;
                 }
+                const recipeContainer = new RecipeDocumentContainer();
+                recipeContainer.clear();
             }
 
             class Recipe {
@@ -39,6 +41,20 @@
                     this.ingredients = ingredients;
                     this.thumbnail = thumbnail;
                     this.url = url;
+                }
+            }
+
+            class RecipeDocumentContainer {
+                constructor(containerID='results') {
+                    this.container = document.getElementById(containerID);
+                    if(!this.container) {
+                        throw `Error when trying to create RecipeDocumentContainer: ` +
+                              `ID '${containerID}' does not exist`;
+                    }
+                }
+
+                clear() {
+                    this.container.innerHTML = '';
                 }
             }
 
