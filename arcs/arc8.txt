@@ -1,0 +1,1 @@
+In the next commits, we'll enable clicking on one of the recipe ingredients to trigger a search with that ingredient and navigate different recipes.
