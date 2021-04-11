@@ -1,0 +1,3 @@
+In the next commits, we'll introduce a local storage module.
+The local storage will store the ingredients and recipes resulted from our API calls.
+That way, if we search for the same ingredients again, we won't have to make another API call, but get the results from the local storage.
