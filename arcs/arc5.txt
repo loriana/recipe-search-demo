@@ -1,0 +1,2 @@
+In the next commits, we'll look into retrieving recipes from an external API using API calls. 
+Since we'll be sending asynchronous requests, we'll also look into using promises with the async/await syntax.
