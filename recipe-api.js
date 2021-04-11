@@ -19,3 +19,17 @@ export async function retrieve(ingredients) {
         console.log(error);
     }
 }
+
+function api_url(ingredients) {
+    const API_URL = `http://www.recipepuppy.com/api/?i=${Ingredients.serialize(ingredients)}`;
+    return API_URL;
+}
+
+var Ingredients = {
+    serialize : function(ingredients) {
+        return ingredients.join(',');
+    },
+    parse : function(ingredientString) {
+        return ingredientString.split(',');
+    }
+}
